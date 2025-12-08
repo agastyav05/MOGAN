@@ -1,0 +1,14 @@
+#!/bin/bash
+
+#SBATCH --job-name GAN_inpainting_train
+#SBATCH -A lin491
+#SBATCH --partition=a10
+#SBATCH --nodes=1 --gpus-per-node=1
+#SBATCH --mem=165G
+#SBATCH --time=8:00:00
+
+module load cuda
+module load ngc/default
+module load pytorch
+
+python -u train.py --epochs 500
